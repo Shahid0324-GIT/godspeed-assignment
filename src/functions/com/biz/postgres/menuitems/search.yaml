@@ -1,0 +1,17 @@
+summary: Fetch many MenuItems
+tasks:
+  - id: postgres_menuitems_search
+    fn: com.gs.datastore
+    args:
+      datasource: postgres
+      data: 
+        where:
+          name: <% inputs.body.name %>
+          restaurantId: <% inputs.body.restaurantId %>
+        # include:  
+        #   Restaurant:
+        #     where:
+        #       name:
+        #         equals: <% inputs.body.name %>
+      config:
+        method: MenuItems.findMany
